@@ -1,0 +1,11 @@
+extends layout
+
+
+
+block content
+  table
+    each event, i in eventlist
+      tr(class= event.format)
+        td(title= event.origname) #{event.charname}
+        td #{event.message}
+        td #{event.time}

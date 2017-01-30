@@ -1,0 +1,129 @@
+tr.wolfmsg {
+    background-color: white;
+    color: red;
+	/*display: none;*/
+}
+tr.villagemsg {
+    background-color: white;
+    color: black;
+}
+tr.ghostmsg {
+    background-color: grey;
+    color: gold;
+	/*display: none; */
+}
+tr.modmsg {
+    background-color: white;
+    color: gold;
+	font-weight: bold;
+	background-color: black;
+
+}
+tr.covenmsg {
+    background-color: white;
+    color: purple;
+	/*display: none;*/
+}
+
+tr.vampmsg {
+    background-color: white;
+    color: orange;
+	/*display: none;*/
+}
+
+tr.masonmsg {
+    background-color: white;
+    color: blue;
+	/*display: none;*/
+}
+tr.demonmsg {
+    background-color: white;
+    color: green;
+	/*display: none;*/
+}
+a{
+				color: white;
+}
+a:hover{
+		color: black;
+	}
+	#days{
+
+	}
+	blockquote cite {
+					color: #999999;
+					font-size: 14px;
+					display: block;
+					margin-top: 5px;
+	}
+
+				blockquote cite:before {
+					content: "\2014 \2009";
+				}
+			blockquote:before {
+				display: block;
+				content: "\201C";
+				font-size: 80px;
+				position: absolute;
+				top: -20px;
+				color: #7a7a7a;
+				}
+			blockquote {
+				font-family: Georgia, serif;
+				font-size: 18px;
+				font-style: italic;
+				width: 500px;
+				padding: 0.25em 40px;
+				line-height: 1.45;
+				position: relative;
+				color: #383838;
+				margin-bottom: -50px;
+				margin-top: 100px;
+				}
+			#lengte{
+				width: 130px;
+			}
+			p{
+				margin-top: 3.5%;
+			}
+			#message{
+				margin-left: auto;
+				margin-right: auto;
+				text-align: center;
+			}
+			body{
+				margin-top: 0px;
+				padding-top: 0px;
+			}
+			.header{
+				z-index: 1;
+				top: 0px;
+				position: fixed;
+				border: 1px solid black;
+				width: 100%;
+				background: grey;
+				padding: 10px;
+				margin-bottom: 30px;
+			}
+			#centering{
+				width:50%;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			table{
+			  margin: 0px 10px 10px 10px;
+			}
+
+			td:hover {
+    		position: relative;
+			}
+
+			td[title]:hover:after {
+				width: 100%;
+		    content: attr(title);
+		    position: absolute;
+		    left: 0;
+		    white-space: nowrap;
+		    z-index: 20px;
+		    background:grey;
+			}
