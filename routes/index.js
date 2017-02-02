@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 var mongodb = require('mongodb');
 var wwparse = require('../ww-parse.js')
+var dotenv = require('dotenv');
+dotenv.load();
 
 /* GET home page. */
 // Defines the root route. router.get receives a path and a function
@@ -21,7 +23,7 @@ router.get('/games/:gamename', function(req, res, next){
   var MongoClient = mongodb.MongoClient;
 
   // Define where the MongoDB server is
-  var url = 'mongodb://localhost:27017/wwarchive';
+var url = process.env.DBURL;
 
   // Connect to the server
   MongoClient.connect(url, function (err, db) {
