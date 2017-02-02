@@ -25,7 +25,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.locals.moment = require('moment');
+//
 // Define what route files to use being routes/index.js for /
 // routes/users.js for /users
 // The route files then render the page
