@@ -3,6 +3,7 @@ new Vue({
   mounted : function () {
     this.$http.get('/games/ext-093').then(response => {
     this.tablehtml = response.data;
+
         });
   },
   data: {
@@ -10,15 +11,15 @@ new Vue({
     game : 'ext-093',
     tablehtml : 'Loading.....',
     seeme: {
-      villagemsg : true,
-      modgemsg : true,
+      villagemsg : false,
+      modgemsg : false,
       wolfmsg: false,
       covenmsg: false
     }
   },
   watch : {
     game: function(){
-      $( "#gametable").load( "/games/"+this.game);
+
     }
   },
   methods: {}

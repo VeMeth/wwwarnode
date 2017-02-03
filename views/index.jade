@@ -18,7 +18,7 @@ block content
           label {{vis}} Demons
           input(type = "checkbox" id=togglesaltmine  v-model = "seeme.ghostmsg" value = "ghostmsg")
           label {{vis}} Saltmine
-          input(type = "checkbox" id=togglevillage  v-model = "seeme.villagenmsg" value = "villagenmsg")
+          input(type = "checkbox" id=togglevillage  v-model = "seeme.villagemsg" value = "villagenmsg")
           label {{vis}} Village
         div(id= "gameselector")
           select(id="getgame" v-model = "game")
@@ -29,5 +29,6 @@ block content
                option(value="spd-#{i}") Spd-#{i}
                -}
 
-      div(v-html="tablehtml")
+    div(v-html="tablehtml")
+    
   script(src="/client.js").
