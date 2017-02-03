@@ -1,27 +1,37 @@
+Vue.component("loading", {
+    template: '<span>Loading...</span>'
+});
+
 new Vue({
   el: '#wrapper',
-  mounted : function () {
-    this.$http.get('/games/ext-093').then(response => {
-    this.tablehtml = response.data;
-
-        });
-  },
   data: {
     vis: '',
     game : 'ext-093',
-    tablehtml : 'Loading.....',
+    currentView: "loading",
     seeme: {
-      villagemsg : false,
-      modgemsg : false,
-      wolfmsg: false,
+      villagemsg : true,
+      modgemsg : true,
+      wolfmsg: true,
       covenmsg: false
     }
   },
+  mounted : function () {
+    this.$http.get('/games/ext-093').then(response => {
+      Vue.component("game", {
+        template: response.data,
+        props: ['seeme']
+    });
+
+        //And then change the page to that component
+        this.currentView = "game";
+
+    });
+  },
+
   watch : {
     game: function(){
-
+        // set currentView to 'loading' again, then reload the game as in mounted (move it to a method to be able to recall it)
     }
   },
   methods: {}
-
 })

@@ -29,6 +29,7 @@ block content
                option(value="spd-#{i}") Spd-#{i}
                -}
 
-    div(v-html="tablehtml")
-    
+    loading(v-if="currentView == 'loading'")
+    game(v-if="currentView == 'game'", seeme='seeme')
+
   script(src="/client.js").
