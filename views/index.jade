@@ -1,7 +1,33 @@
 extends layout
 
 block content
-  h1= title
-  div(id="gametable")
-  script.
-    $( "#gametable").load( "/games/spd-018");
+
+  div(id="wrapper")
+    center
+      div(class="header")
+        div(id="centering")
+          input(type = "checkbox" id=togglewolf v-model = "seeme.wolfmsg" value = "wolfmsg")
+          label {{vis}} Wolves
+          input(type = "checkbox" id=togglecoven  v-model = "seeme.covenmsg" value = "covenmsg")
+          label {{vis}} Coven
+          input(type = "checkbox" id=togglevamp v-model = "seeme.vampnmsg" value = "vampnmsg")
+          label {{vis}} Vamp
+          input(type = "checkbox" id=togglemason  v-model = "seeme.masonmsg" value = "masonmsg")
+          label {{vis}} Mason
+          input(type = "checkbox" id=toggledemon  v-model = "seeme.demonmsg" value = "demonmsg")
+          label {{vis}} Demons
+          input(type = "checkbox" id=togglesaltmine  v-model = "seeme.ghostmsg" value = "ghostmsg")
+          label {{vis}} Saltmine
+          input(type = "checkbox" id=togglevillage  v-model = "seeme.villagenmsg" value = "villagenmsg")
+          label {{vis}} Village
+        div(id= "gameselector")
+          select(id="getgame" v-model = "game")
+            -for(var i = 35;i<105;i++){
+              option(value="ext-#{i}") Ext-#{i}
+              -}
+            -for(var i = 3;i<19;i++){
+               option(value="spd-#{i}") Spd-#{i}
+               -}
+
+      div(v-html="tablehtml")
+  script(src="/client.js").

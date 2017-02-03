@@ -1,7 +1,7 @@
 tr.wolfmsg {
     background-color: white;
     color: red;
-	/*display: none;*/
+
 }
 tr.villagemsg {
     background-color: white;
@@ -10,36 +10,36 @@ tr.villagemsg {
 tr.ghostmsg {
     background-color: grey;
     color: gold;
-	/*display: none; */
+
 }
 tr.modmsg {
     background-color: white;
     color: gold;
-	font-weight: bold;
-	background-color: black;
+	  font-weight: bold;
+	  background-color: black;
 
 }
 tr.covenmsg {
     background-color: white;
     color: purple;
-	/*display: none;*/
+	   d
 }
 
 tr.vampmsg {
     background-color: white;
     color: orange;
-	/*display: none;*/
+
 }
 
 tr.masonmsg {
     background-color: white;
     color: blue;
-	/*display: none;*/
+
 }
 tr.demonmsg {
     background-color: white;
     color: green;
-	/*display: none;*/
+
 }
 a{
 				color: white;
@@ -96,9 +96,9 @@ a:hover{
 				padding-top: 0px;
 			}
 			.header{
-				z-index: 1;
+				/*z-index: 1; */
 				top: 0px;
-				position: fixed;
+				/*position: fixed; */
 				border: 1px solid black;
 				width: 100%;
 				background: grey;

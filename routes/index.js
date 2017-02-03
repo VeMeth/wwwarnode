@@ -14,7 +14,7 @@ dotenv.load();
 // render says to use the views/index.jade file for the layout
 // and to set the value for title to 'Express'
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'WW.es archive reader' });
 });
 
 router.get('/games/:gamename', function(req, res, next){
