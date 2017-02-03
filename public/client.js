@@ -10,9 +10,12 @@ new Vue({
     currentView: "loading",
     seeme: {
       villagemsg : true,
-      modgemsg : true,
-      wolfmsg: true,
-      covenmsg: false
+      wolfmsg: false,
+      covenmsg: false,
+      vampnmsg: false,
+      masonmsg: false,
+      ghostmsg: false,
+      demonmsg: false
     }
   },
   mounted : function () {

@@ -30,6 +30,6 @@ block content
                -}
 
     loading(v-if="currentView == 'loading'")
-    game(v-if="currentView == 'game'", seeme='seeme')
+    game(v-if="currentView == 'game'", :seeme="seeme")
 
   script(src="/client.js").
