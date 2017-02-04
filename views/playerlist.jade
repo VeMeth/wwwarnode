@@ -7,5 +7,7 @@ block content
     each event, i in eventlist
       tr(class= event.format v-show='seeme.'+event.format)
         td(title= event.origname) #{event.charname}
+          if event.origname == "Daybreak"
+            a(name="#{event.message}")
         td #{event.message}
         td #{event.time}

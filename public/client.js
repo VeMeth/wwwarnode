@@ -14,7 +14,8 @@ new Vue({
       vampnmsg: false,
       masonmsg: false,
       ghostmsg: false,
-      demonmsg: false
+      demonmsg: false,
+      modmsg:   true
     }
   },
   mounted : function () {
@@ -23,10 +24,8 @@ new Vue({
         template: response.data,
         props: ['seeme']
     });
-
         //And then change the page to that component
         this.currentView = "game";
-
     });
   },
 
@@ -39,10 +38,8 @@ new Vue({
             template: response.data,
             props: ['seeme']
         });
-
             //And then change the page to that component
             this.currentView = "game";
-
         });
     }
   },

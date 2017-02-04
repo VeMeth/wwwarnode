@@ -165,7 +165,7 @@ exports.creategame = function (mongame, resolveCallback, rejectCallback) {
                 protectortarget = "";
                 daycount++;
                 //resulttable +='<a href=#day'+daycount+'>Day '+daycount+'</a> | ';
-                var insertelement = new NewElement(elem._id,'Modertor','Moderator','Day '+daycount,roles.formatter(elem.__type),stunden + ':' + minuten + ':' + sekunden);
+                var insertelement = new NewElement(elem._id,'Daybreak','Daybreak','Day'+daycount,roles.formatter(elem.__type),stunden + ':' + minuten + ':' + sekunden);
                 parsedgame.push(insertelement);
                 console.log('Daybreak');
             }
