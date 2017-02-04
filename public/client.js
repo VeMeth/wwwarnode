@@ -1,11 +1,10 @@
 Vue.component("loading", {
-    template: '<span>Loading...</span>'
+    template: '<span><center><img src="/30.gif"></center></span>'
 });
 
 new Vue({
   el: '#wrapper',
   data: {
-    vis: '',
     game : 'ext-043',
     currentView: "loading",
     seeme: {

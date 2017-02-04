@@ -6,20 +6,20 @@ block content
     center
       div(class="header")
         div(id="centering")
-          input(type = "checkbox" id=togglewolf v-model = "seeme.wolfmsg" value = "wolfmsg")
-          label {{vis}} Wolves
-          input(type = "checkbox" id=togglecoven  v-model = "seeme.covenmsg" value = "covenmsg")
-          label {{vis}} Coven
-          input(type = "checkbox" id=togglevamp v-model = "seeme.vampnmsg" value = "vampnmsg")
-          label {{vis}} Vamp
-          input(type = "checkbox" id=togglemason  v-model = "seeme.masonmsg" value = "masonmsg")
-          label {{vis}} Mason
-          input(type = "checkbox" id=toggledemon  v-model = "seeme.demonmsg" value = "demonmsg")
-          label {{vis}} Demons
-          input(type = "checkbox" id=togglesaltmine  v-model = "seeme.ghostmsg" value = "ghostmsg")
-          label {{vis}} Saltmine
-          input(type = "checkbox" id=togglevillage  v-model = "seeme.villagemsg" value = "villagenmsg")
-          label {{vis}} Village
+          input(type = "checkbox" v-model = "seeme.wolfmsg" value = "wolfmsg")
+          label Wolves
+          input(type = "checkbox" v-model = "seeme.covenmsg" value = "covenmsg")
+          label Coven
+          input(type = "checkbox" v-model = "seeme.vampnmsg" value = "vampnmsg")
+          label Vamp
+          input(type = "checkbox" v-model = "seeme.masonmsg" value = "masonmsg")
+          label Mason
+          input(type = "checkbox" v-model = "seeme.demonmsg" value = "demonmsg")
+          label Demons
+          input(type = "checkbox" v-model = "seeme.ghostmsg" value = "ghostmsg")
+          label Saltmine
+          input(type = "checkbox" v-model = "seeme.villagemsg" value = "villagenmsg")
+          label Village
         div(id= "gameselector")
           select(id="getgame" v-model = "game")
             -for(var i = 35;i<105;i++){
