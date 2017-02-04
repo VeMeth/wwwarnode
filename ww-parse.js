@@ -100,7 +100,7 @@ exports.creategame = function (mongame, resolveCallback, rejectCallback) {
             }
             //account for shapeshifts
             if (elem.__type == "Werewolf.GameEngine.Roles.Werewolves.Shapeshifter.ShapeshifterSwappedPlayerIdentities, Werewolf.GameEngine") {
-                var insertelement = new NewElement(elem._id,'Modertor',players[elem.FirstPlayer] + ' was shapeshifted by  ' + players[elem.SecondPlayer],roles.formatter(elem.__type),stunden + ':' + minuten + ':' + sekunden);
+                var insertelement = new NewElement(elem._id,'Modertor','Moderator',players[elem.FirstPlayer] + ' was shapeshifted by  ' + players[elem.SecondPlayer],roles.formatter(elem.__type),stunden + ':' + minuten + ':' + sekunden);
                 parsedgame.push(insertelement);
                 console.log('Found Shapeshift');
                 //swapping names
@@ -157,7 +157,7 @@ exports.creategame = function (mongame, resolveCallback, rejectCallback) {
             }
             //pre-game chat
             if (elem.__type == "Werewolf.GameEngine.Chatting.PendingGameMessage, Werewolf.GameEngine") {
-              var insertelement = new NewElement(elem._id,elem.PlayerName,elem.PlayerName,elem.Message,stunden + ':' + minuten + ':' + sekunden);
+              var insertelement = new NewElement(elem._id,elem.PlayerName,elem.PlayerName,elem.Message,roles.formatter(elem.__type),stunden + ':' + minuten + ':' + sekunden);
               parsedgame.push(insertelement);
             }
             //find Daybreak

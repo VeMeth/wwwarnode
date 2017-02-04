@@ -23,11 +23,21 @@ block content
         div(id= "gameselector")
           select(id="getgame" v-model = "game")
             -for(var i = 35;i<105;i++){
-              option(value="ext-#{i}") Ext-#{i}
+              -if(i <100) {
+                option(value="ext-0#{i}") EXT-0#{i}
+              -}
+              -else {
+                option(value="ext-#{i}") EXT-#{i}
+                -}
               -}
             -for(var i = 3;i<19;i++){
-               option(value="spd-#{i}") Spd-#{i}
-               -}
+              -if(i <10) {
+                option(value="spd-00#{i}") SPD-00#{i}
+                -}
+              -else {
+                option(value="spd-0#{i}") SPD-0#{i}
+                -}
+              -}
 
     loading(v-if="currentView == 'loading'")
     game(v-if="currentView == 'game'", :seeme="seeme")

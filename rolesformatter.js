@@ -78,8 +78,13 @@ var exports = module.exports = {};
     formatclass = "vampmsg";
     break;
 
+		case "Werewolf.GameEngine.Chatting.PendingGameMessage, Werewolf.GameEngine":
+		formatclass = "villagemsg"
+		break;
+
 		default:
 		formatclass = "villagemsg"
+		break;
 
 
 		}

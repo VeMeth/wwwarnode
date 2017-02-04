@@ -6,7 +6,7 @@ new Vue({
   el: '#wrapper',
   data: {
     vis: '',
-    game : 'ext-093',
+    game : 'ext-043',
     currentView: "loading",
     seeme: {
       villagemsg : true,
@@ -19,7 +19,7 @@ new Vue({
     }
   },
   mounted : function () {
-    this.$http.get('/games/ext-093').then(response => {
+    this.$http.get('/games/'+this.game).then(response => {
       Vue.component("game", {
         template: response.data,
         props: ['seeme']
@@ -34,6 +34,17 @@ new Vue({
   watch : {
     game: function(){
         // set currentView to 'loading' again, then reload the game as in mounted (move it to a method to be able to recall it)
+        this.currentView = "loading";
+        this.$http.get('/games/'+this.game).then(response => {
+          Vue.component("game", {
+            template: response.data,
+            props: ['seeme']
+        });
+
+            //And then change the page to that component
+            this.currentView = "game";
+
+        });
     }
   },
   methods: {}
