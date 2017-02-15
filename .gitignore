@@ -48,4 +48,4 @@ Temporary Items
 node_modules/
 mongocfg.js
 .env
-npm-debug.log
+npm-debug.log*
