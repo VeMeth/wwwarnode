@@ -11,7 +11,7 @@ new Vue({
       villagemsg : true,
       wolfmsg: false,
       covenmsg: false,
-      vampnmsg: false,
+      vampmsg: false,
       masonmsg: false,
       ghostmsg: false,
       demonmsg: false,
