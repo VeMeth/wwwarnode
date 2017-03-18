@@ -49,3 +49,4 @@ node_modules/
 mongocfg.js
 .env
 npm-debug.log*
+*.jar
