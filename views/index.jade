@@ -22,7 +22,7 @@ block content
           label Village
         div(id= "gameselector")
           select(id="getgame" v-model = "game")
-            -for(var i = 35;i<114;i++){
+            -for(var i = 35;i<129;i++){
               -if(i <100) {
                 option(value="ext-0#{i}") EXT-0#{i}
               -}
@@ -30,7 +30,7 @@ block content
                 option(value="ext-#{i}") EXT-#{i}
                 -}
               -}
-            -for(var i = 3;i<30;i++){
+            -for(var i = 3;i<32;i++){
               -if(i <10) {
                 option(value="spd-00#{i}") SPD-00#{i}
                 -}
@@ -39,6 +39,10 @@ block content
                 -}
               -}
             option(value="vmh-001") VMH-001
+            option(value="ahd-001") AHD-001
+            option(value="ena-001") ENA-001
+            option(value="isa-001") ISA-001
+            option(value="xii-001") XII-001
 
     loading(v-if="currentView == 'loading'")
     game(v-if="currentView == 'game'", :seeme="seeme")
