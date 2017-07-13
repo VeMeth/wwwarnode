@@ -2,7 +2,7 @@
   "name": "wwwarnode",
   "version": "0.0.1",
   "engines": {
-    "npm": "4.1.2"
+    "npm": "4.8.4"
   },
   "private": true,
   "scripts": {
