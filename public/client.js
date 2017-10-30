@@ -12,6 +12,8 @@ new Vue({
       wolfmsg: false,
       covenmsg: false,
       vampmsg: false,
+      vampmsgt1: false,
+      vampmsgt2: false,
       masonmsg: false,
       ghostmsg: false,
       demonmsg: false,

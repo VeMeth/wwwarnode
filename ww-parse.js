@@ -5,6 +5,8 @@ var parsedgame = [];
 var players = [];
 var origplayers = [];
 var shiftername = '';
+var vm = 0;
+var vampireteam;
 
 //Add zeros to dates under 10
 function addZero(i) {
@@ -19,10 +21,12 @@ exports.creategame = function (mongame, resolveCallback, rejectCallback) {
     //empty exisiting game
     parsedgame = [];
     players = [];
+    vampireteam = [];
     origplayers = players;
     resulttable = '';
     protectortarget = '';
     daycount = 1;
+    vm = 0;
 
 
     //console.log(origplayers);
@@ -77,6 +81,13 @@ exports.creategame = function (mongame, resolveCallback, rejectCallback) {
             //Create player list
             if (elem.__type == "Werewolf.GameEngine.Core.NewIdentityAssignedEvent, Werewolf.GameEngine") {
                 players[elem.OriginalName] = elem.NewName;
+            }
+
+            //create VampireMaster teams
+            if (elem.__type == "Werewolf.GameEngine.Roles.VampireMasterAssignedEvent, Werewolf.GameEngine") {
+                vampireteam.push(elem.PlayerName);
+                console.log(vampireteam)
+                vm = 1;
             }
 
             //account for legacy shapeshifts
@@ -149,12 +160,26 @@ exports.creategame = function (mongame, resolveCallback, rejectCallback) {
                 swapname2 = '';
 
             }
-            //Find familiar recruitment
+            //Find familiar stalker recruitment
             if (elem.__type == "Werewolf.GameEngine.Roles.FamiliarStalkerAssignedEvent, Werewolf.GameEngine") {
-              var insertelement = new NewElement(elem._id,'Modertor','Moderator',players[elem.PlayerName]+' was recruited by the Vampire',roles.formatter(elem.__type),stunden + ':' + minuten + ':' + sekunden);
+              var insertelement = new NewElement(elem._id,'Modertor','Moderator',players[elem.PlayerName]+' was recruited as Stalker by the Vampire '+ players[elem.VampireName],roles.formatter(elem.__type),stunden + ':' + minuten + ':' + sekunden);
               parsedgame.push(insertelement);
-                console.log('Found familiar recruitment');
+                console.log('Found familiar recruitment ' + players[elem.PlayerName]);
             }
+
+            //Find familiar Militia recruitment
+            if (elem.__type == "Werewolf.GameEngine.Roles.FamiliarMilitiaAssignedEvent, Werewolf.GameEngine") {
+                var insertelement = new NewElement(elem._id,'Modertor','Moderator',players[elem.PlayerName]+' was recruited as Militia by the Vampire '+ players[elem.VampireName],roles.formatter(elem.__type),stunden + ':' + minuten + ':' + sekunden);
+                parsedgame.push(insertelement);
+                  console.log('Found familiar recruitment ' + players[elem.PlayerName]);
+              }
+            //Find familiar Gravedigger recruitment
+            if (elem.__type == "Werewolf.GameEngine.Roles.FamiliarGravediggerAssignedEvent, Werewolf.GameEngine") {
+                var insertelement = new NewElement(elem._id,'Modertor','Moderator',players[elem.PlayerName]+' was recruited as Gravedigger by the Vampire '+ players[elem.VampireName],roles.formatter(elem.__type),stunden + ':' + minuten + ':' + sekunden);
+                parsedgame.push(insertelement);
+                  console.log('Found familiar recruitment ' + players[elem.PlayerName]);
+            }  
+
             //pre-game chat
             if (elem.__type == "Werewolf.GameEngine.Chatting.PendingGameMessage, Werewolf.GameEngine") {
               var insertelement = new NewElement(elem._id,elem.PlayerName,elem.PlayerName,elem.Message,roles.formatter(elem.__type),stunden + ':' + minuten + ':' + sekunden);
@@ -250,11 +275,40 @@ exports.creategame = function (mongame, resolveCallback, rejectCallback) {
               var insertelement = new NewElement(elem._id,'Modertor','Moderator',elem.Message,roles.formatter(elem.__type),stunden + ':' + minuten + ':' + sekunden);
               parsedgame.push(insertelement);
             }
-            if (elem.PlayerName != null && elem.Message != null && elem.__type != "Werewolf.GameEngine.Chatting.PendingGameMessage, Werewolf.GameEngine") {
+
+            //VAMPIRETEAM SEPARATION
+            if (elem.__type == "Werewolf.GameEngine.Roles.Vampires.VampireNightMessageEvent, Werewolf.GameEngine") {
+                if (elem.Recipients[0] == vampireteam[0]) {
+                    console.log('Found Vamp Message from '+ elem.Recipients[0]);
+                    var insertelement = new NewElement(elem._id,elem.PlayerName,players[elem.PlayerName],elem.Message,roles.formatter('vampmsgt1'),stunden + ':' + minuten + ':' + sekunden);
+                    parsedgame.push(insertelement);
+                }
+                if (elem.Recipients[0] == vampireteam[1]) {
+                    console.log('Found Vamp Message from '+ elem.Recipients[0]);
+                    var insertelement = new NewElement(elem._id,elem.PlayerName,players[elem.PlayerName],elem.Message,roles.formatter('vampmsgt2'),stunden + ':' + minuten + ':' + sekunden);
+                    parsedgame.push(insertelement);
+                }
+                if (vampireteam.length == 0) {
+                    console.log('Found Vanilla Vamp MSG')
+                    var insertelement = new NewElement(elem._id,elem.PlayerName,players[elem.PlayerName],elem.Message,roles.formatter(elem.__type),stunden + ':' + minuten + ':' + sekunden);
+                    parsedgame.push(insertelement);
+                }
+            }
+
+
+
+
+            if (elem.PlayerName != null && elem.Message != null && elem.__type != "Werewolf.GameEngine.Chatting.PendingGameMessage, Werewolf.GameEngine" && elem.__type != "Werewolf.GameEngine.Roles.Vampires.VampireNightMessageEvent, Werewolf.GameEngine") {
 
               var insertelement = new NewElement(elem._id,elem.PlayerName,players[elem.PlayerName],elem.Message,roles.formatter(elem.__type),stunden + ':' + minuten + ':' + sekunden);
               parsedgame.push(insertelement);
             }
+
+
+            
+
+
+
         }
 
         console.log(parsedgame.length);

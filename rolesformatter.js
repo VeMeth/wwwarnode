@@ -72,10 +72,26 @@ var exports = module.exports = {};
     break;
     case "Werewolf.GameEngine.Roles.FamiliarStalkerAssignedEvent, Werewolf.GameEngine":
     formatclass = "modmsg";
-    break;
-
+	break;
+	
+	case "Werewolf.GameEngine.Roles.FamiliarMilitiaAssignedEvent, Werewolf.GameEngine":
+    formatclass = "modmsg";
+	break;
+	
+	case "Werewolf.GameEngine.Roles.FamiliarGravediggerAssignedEvent, Werewolf.GameEngine":
+    formatclass = "modmsg";
+	break;
+	
     case "Werewolf.GameEngine.Roles.Vampires.VampireNightMessageEvent, Werewolf.GameEngine":
     formatclass = "vampmsg";
+	break;
+	
+	case "vampmsgt1":
+    formatclass = "vampmsgt1";
+	break;
+	
+	case "vampmsgt2":
+    formatclass = "vampmsgt2";
     break;
 
 		case "Werewolf.GameEngine.Chatting.PendingGameMessage, Werewolf.GameEngine":

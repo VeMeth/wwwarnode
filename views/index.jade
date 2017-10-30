@@ -12,6 +12,10 @@ block content
           label Coven
           input(type = "checkbox" v-model = "seeme.vampmsg" value = "vampmsg")
           label Vamp
+          input(type = "checkbox" v-model = "seeme.vampmsgt1" value = "vampmsg")
+          label VampMaster1
+          input(type = "checkbox" v-model = "seeme.vampmsgt2" value = "vampmsg")
+          label VampMaster2
           input(type = "checkbox" v-model = "seeme.masonmsg" value = "masonmsg")
           label Mason
           input(type = "checkbox" v-model = "seeme.demonmsg" value = "demonmsg")
@@ -22,7 +26,7 @@ block content
           label Village
         div(id= "gameselector")
           select(id="getgame" v-model = "game")
-            -for(var i = 35;i<160;i++){
+            -for(var i = 35;i<180;i++){
               -if(i <100) {
                 option(value="ext-0#{i}") EXT-0#{i}
               -}
@@ -44,6 +48,7 @@ block content
             option(value="isa-001") ISA-001
             option(value="kng-001") KNG-001
             option(value="xii-001") XII-001
+            option(value="rub-001") RUB-001
 
     loading(v-if="currentView == 'loading'")
     game(v-if="currentView == 'game'", :seeme="seeme")

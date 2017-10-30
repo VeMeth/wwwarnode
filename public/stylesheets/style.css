@@ -92,6 +92,18 @@ tr.vampmsg {
 
 }
 
+tr.vampmsgt1 {
+	background-color: white;
+	color: orange;
+
+}
+
+tr.vampmsgt2 {
+	background-color: white;
+	color: #d66a00;
+
+}
+
 tr.masonmsg {
     background-color: white;
     color: blue;
